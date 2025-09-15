@@ -6,4 +6,4 @@
 
 建议先大概学习下scrapy的爬虫框架，可以看看Mooc上的嵩天老师的视频
 直接用scrapy命令运行spider目录下的对应的文件即可，注意运行不同的文件，需将settings.py中的item_piplines的属性修改为对应的pipline.
-
+# 注意，本项目是在原始 git 仓：https://github.com/a2636340559/PoetryCrawler/tree/master/gushiwen 进行改造
