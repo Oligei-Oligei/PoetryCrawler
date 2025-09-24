@@ -8,8 +8,17 @@ class GushiSpider(scrapy.Spider):
     name = 'gushi'
     domain = 'https://www.gushiwen.cn'
     #allowed_domains = ['https://www.gushiwen.org/shiwen/']
-    start_urls = ['https://www.gushiwen.cn/shiwens/']
+    # start_urls = ['https://www.gushiwen.cn/shiwens/', 'https://www.gushiwen.cn/shiwens/default.aspx?astr=']
+    search_by_author = 'https://www.gushiwen.cn/shiwens/default.aspx?astr='
+    start_urls = []
+    author_list = ['李白', '杜甫', '王维', '王安石', '李清照', '苏轼', '杜牧', '陆游', '元稹', '韩愈', '岑参', '齐己', '曹操', '李贺']
     n = 0
+
+    def __init__(self, name=None, *args, **kwargs):
+        super().__init__(name, args, kwargs)
+        for author in self.author_list:
+            self.start_urls.append(self.search_by_author + author)
+
 
     def parse(self, response):
         # 提取分页参数url
